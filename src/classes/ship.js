@@ -8,6 +8,7 @@ class Ship {
   hit() {
     if (this.hits < this.size) {
       this.hits++;
+      this.isSunk();
     }
   }
   isSunk() {

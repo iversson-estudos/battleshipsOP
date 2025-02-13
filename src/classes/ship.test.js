@@ -53,4 +53,12 @@ describe("Ship", () => {
     expect(ship.isSunk()).toBe(true);
     expect(ship.sunk).toBe(1);
   });
+
+  test("Ships should automatically sunk when they get hit", () => {
+    ship.hit();
+    ship.hit();
+    ship.hit();
+    expect(ship.hits).toBe(3);
+    expect(ship.sunk).toBe(1);
+  });
 });

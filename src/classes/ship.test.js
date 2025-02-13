@@ -1,4 +1,4 @@
-const Ship = require("./ship.js"); // Use require instead of import
+const Ship = require("./ship.js");
 
 describe("Ship", () => {
   let ship;

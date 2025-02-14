@@ -13,6 +13,6 @@ describe("Gameboard", () => {
     expect(gameboard).toBeInstanceOf(Gameboard);
   });
   test("navio deve ser inserido", () => {
-    expect(gameboard[2][3]).toBeInstanceOf(Ship);
+    expect(gameboard.gameboard[2][3]).toBeInstanceOf(Ship);
   });
 });

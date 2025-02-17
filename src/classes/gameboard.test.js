@@ -65,4 +65,25 @@ describe("Gameboard", () => {
     gameboard.receiveAttack(2, 6);
     expect(gameboard.gameboard[2][6].isSunk()).toBe(true);
   });
+  test("Gameboard should check for if game has ended", () => {
+    gameboard.placeShip(1, 6, 2, 6);
+    gameboard.receiveAttack(1, 6);
+    gameboard.receiveAttack(2, 6);
+    expect(gameboard.gameOver).toBe(true);
+  });
+  test("Gameboard should check for if game has ended", () => {
+    gameboard.placeShip(1, 6, 2, 6);
+    gameboard.receiveAttack(1, 6);
+    gameboard.receiveAttack(3, 6);
+    expect(gameboard.gameOver).toBe(false);
+  });
+
+  /*test("Gameboard shouldnt allow new hits if game ended", () => {
+    gameboard.placeShip(1, 6, 2, 6);
+    gameboard.receiveAttack(1, 6);
+    gameboard.receiveAttack(2, 6);
+    expect(() => {
+      gameboard.receiveAttack(3, 5);
+    }).toThrow(Error);
+    });*/
 });

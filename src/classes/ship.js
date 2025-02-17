@@ -1,23 +1,24 @@
 class Ship {
   constructor(size) {
     this.size = size;
-    this.sunk = 0;
+    this.sunk = false;
     this.hits = 0;
   }
 
   hit() {
     if (this.hits < this.size) {
       this.hits++;
-      this.isSunk();
+      this.checkSunk();
     }
   }
-  isSunk() {
+  checkSunk() {
     if (this.hits === this.size) {
-      this.sunk = 1;
-      return true;
-    } else {
-      return false;
+      this.sunk = true;
     }
+  }
+
+  isSunk() {
+    return this.sunk;
   }
 }
 

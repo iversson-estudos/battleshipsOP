@@ -10,7 +10,7 @@ describe("Ship", () => {
   test("should initialize with correct size, hits, and sunk status", () => {
     expect(ship.size).toBe(3);
     expect(ship.hits).toBe(0);
-    expect(ship.sunk).toBe(0);
+    expect(ship.isSunk()).toBe(false);
   });
 
   test("should increment hits when hit() is called", () => {
@@ -32,7 +32,7 @@ describe("Ship", () => {
     ship.hit();
     ship.hit();
     expect(ship.isSunk()).toBe(true);
-    expect(ship.sunk).toBe(1);
+    expect(ship.sunk).toBe(true);
   });
 
   test("should be sunk if hits exceed size", () => {
@@ -41,7 +41,7 @@ describe("Ship", () => {
     ship.hit();
     ship.hit(); // Exceeding the size
     expect(ship.isSunk()).toBe(true); // Still sunk, but hits exceed size
-    expect(ship.sunk).toBe(1);
+    expect(ship.sunk).toBe(true);
   });
 
   test("hits shouldnt exceed size", () => {
@@ -51,7 +51,7 @@ describe("Ship", () => {
     ship.hit(); // Exceeding the size
     expect(ship.hits).toBe(3); // hits dont exceed size
     expect(ship.isSunk()).toBe(true);
-    expect(ship.sunk).toBe(1);
+    expect(ship.sunk).toBe(true);
   });
 
   test("Ships should automatically sunk when they get hit", () => {
@@ -59,6 +59,6 @@ describe("Ship", () => {
     ship.hit();
     ship.hit();
     expect(ship.hits).toBe(3);
-    expect(ship.sunk).toBe(1);
+    expect(ship.sunk).toBe(true);
   });
 });

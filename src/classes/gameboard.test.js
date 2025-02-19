@@ -40,7 +40,7 @@ describe("Gameboard", () => {
   test("Gameboard throws error if it receives an out of bounds attack", () => {
     expect(() => {
       gameboard.receiveAttack(8, 8);
-    }).toThrow(Error);
+    }).toThrow("Out of bounds");
   });
   test("Ships get hits recorded correctly", () => {
     gameboard.placeShip(1, 6, 2, 6);
@@ -52,7 +52,7 @@ describe("Gameboard", () => {
     gameboard.receiveAttack(1, 6);
     expect(() => {
       gameboard.receiveAttack(1, 6);
-    }).toThrow(Error);
+    }).toThrow("Already hit");
   });
   test("Ships dont sink if all their body isnt hit", () => {
     gameboard.placeShip(1, 6, 2, 6);
@@ -77,13 +77,12 @@ describe("Gameboard", () => {
     gameboard.receiveAttack(3, 6);
     expect(gameboard.gameOver).toBe(false);
   });
-
-  /*test("Gameboard shouldnt allow new hits if game ended", () => {
+  test("Gameboard shouldnt allow new hits if game ended", () => {
     gameboard.placeShip(1, 6, 2, 6);
     gameboard.receiveAttack(1, 6);
     gameboard.receiveAttack(2, 6);
     expect(() => {
-      gameboard.receiveAttack(3, 5);
-    }).toThrow(Error);
-    });*/
+      gameboard.receiveAttack(3, 6);
+    }).toThrow("Game ended, no more attacks allowed");
+  });
 });

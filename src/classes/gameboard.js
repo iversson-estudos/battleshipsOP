@@ -21,9 +21,9 @@ class Gameboard {
   }
   receiveAttack(x, y) {
     //checks if game ended
-    /*if (this.gameOver === true) {
+    if (this.gameOver === true) {
       throw new Error("Game ended, no more attacks allowed");
-      }*/
+    }
     //checks if hit is out of bounds
     if (x >= 8 || y >= 8) {
       throw new Error("Out of bounds");

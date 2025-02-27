@@ -127,3 +127,35 @@ table {
   border-spacing: 0;
 }
 /*END OF CSS RESET*/
+:root {
+  --cellsize: 75px;
+  --font-size-big: 64px;
+  --font-size-medium: 48px;
+  --font-size-small: 32px;
+}
+
+body {
+  #main {
+    display: grid;
+    grid-template-rows: 1fr 5fr 1fr;
+
+    .board {
+      justify-self: center;
+      grid-row: 2/3;
+      display: grid;
+      grid-template-columns: repeat(8, var(--cellsize));
+      grid-template-rows: repeat(8, var(--cellsize));
+
+      .cell {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+        height: var(--cellsize);
+        width: var(--cellsize);
+      }
+    }
+  }
+}

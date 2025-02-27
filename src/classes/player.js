@@ -5,7 +5,6 @@ class Player {
     this.name = name;
     this.gameboard = new Gameboard();
     this.playerType = this.name === "Computer" ? "AI" : "Human";
-    }
   }
 }
 

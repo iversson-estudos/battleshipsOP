@@ -2,10 +2,9 @@ function startView() {
   const mainContainer = document.getElementById("main");
   mainContainer.innerHTML = `<div class="startGame">
   <form>
-    <label>PLAYER</label><br>
-    <input type="text"id="playerName"></input><br>
+    <input required minlength="1" maxlength="24" placeholder="Player Name" type="text"id="playerName"></input><br>
   </form>
-  <button id="startGame">START GAME</button>
+  <button id="start">START</button>
   </div>`;
 }
 

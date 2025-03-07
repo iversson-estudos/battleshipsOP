@@ -2,22 +2,38 @@ const Ship = require("../classes/ship.js");
 const Gameboard = require("../classes/gameboard.js");
 const Player = require("../classes/player.js");
 
-function boardView(player) {
-  const mainContainer = document.getElementById("main");
-  const board = mainContainer.querySelector(".board");
-  console.log(player);
+function boardView(humanPlayer, aiPlayer) {
+  const aiBoard = document.getElementById("aiBoard");
+  const humanBoard = document.getElementById("humanBoard");
+  console.log(humanPlayer, aiPlayer);
+  console.log(humanBoard, aiBoard);
 
-  for (let x = 0; x < player.gameboard.log.length; x++) {
-    for (let y = 0; y < player.gameboard.log[x].length; y++) {
+  //human board
+  for (let x = 0; x < humanPlayer.gameboard.log.length; x++) {
+    for (let y = 0; y < humanPlayer.gameboard.log[x].length; y++) {
       const cell = document.createElement("div");
       cell.classList.add("cell");
-      if (player.gameboard.log[x][y] === undefined) {
-        cell.textContent = " ";
+      if (humanPlayer.gameboard.log[x][y] === undefined) {
+        cell.textContent = x + "|" + y;
       } else {
-        cell.textContent = player.gameboard.log[x][y];
+        cell.textContent = humanPlayer.gameboard.log[x][y];
       }
 
-      board.appendChild(cell);
+      humanBoard.appendChild(cell);
+    }
+  }
+  //ai board
+  for (let x = 0; x < aiPlayer.gameboard.log.length; x++) {
+    for (let y = 0; y < aiPlayer.gameboard.log[x].length; y++) {
+      const cell = document.createElement("div");
+      cell.classList.add("cell");
+      if (aiPlayer.gameboard.log[x][y] === undefined) {
+        cell.textContent = x + "|" + y;
+      } else {
+        cell.textContent = aiPlayer.gameboard.log[x][y];
+      }
+
+      aiBoard.appendChild(cell);
     }
   }
 }

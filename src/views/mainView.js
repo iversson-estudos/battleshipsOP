@@ -1,11 +1,13 @@
 import { boardView } from "./boardView";
 
-function mainView(player) {
+function mainView(humanPlayer, aiPlayer) {
   const mainContainer = document.getElementById("main");
   mainContainer.innerHTML = `
-    <div class="board"></div>
+    <div class="board" id="humanBoard"></div>
+    <div class="board"id="aiBoard"></div>
     `;
-  boardView(player);
+
+  boardView(humanPlayer, aiPlayer);
 }
 
 export { mainView };

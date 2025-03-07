@@ -7,7 +7,7 @@ function startGame(playerName) {
   humanPlayer.gameboard.placeShip(3, 3, 4, 3);
   humanPlayer.gameboard.receiveAttack(3, 3);
 
-  mainView(humanPlayer);
+  mainView(humanPlayer, aiPlayer);
 }
 
 export { startGame };

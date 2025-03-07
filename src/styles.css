@@ -137,9 +137,10 @@ table {
 body {
   #main {
     display: flex;
+    gap: 48px;
+    justify-content: space-evenly;
 
     .board {
-      justify-self: center;
       display: grid;
       grid-template-columns: repeat(8, var(--cellsize));
       grid-template-rows: repeat(8, var(--cellsize));

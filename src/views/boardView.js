@@ -11,7 +11,12 @@ function boardView(player) {
     for (let y = 0; y < player.gameboard.log[x].length; y++) {
       const cell = document.createElement("div");
       cell.classList.add("cell");
-      cell.innerHTML = player.gameboard.log[x][y];
+      if (player.gameboard.log[x][y] === undefined) {
+        cell.textContent = " ";
+      } else {
+        cell.textContent = player.gameboard.log[x][y];
+      }
+
       board.appendChild(cell);
     }
   }

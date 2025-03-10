@@ -1,4 +1,5 @@
 import { Game } from "../classes/game.js";
+import Ship from "../classes/ship.js";
 
 let game;
 
@@ -21,7 +22,7 @@ function attack(cell) {
   game.humanAttack(x, y);
 }
 
-function placeRandomShips(player) {
+function placeRandomShips() {
   //log of ships already placed, so we dont have colision
   let placedShips = [];
   //how many ships will be placed
@@ -30,8 +31,23 @@ function placeRandomShips(player) {
   for (let i = 0; i < numberOfShips; i++) {
     const x = Math.floor(Math.random() * 8);
     const y = Math.floor(Math.random() * 8);
+
     console.log(x, y);
     //check colisions
+    let found = 0;
+    for (let f = 0; f < placedShips.length; f++) {
+      if (placedShips[f][0] === x && placedShips[f][1] === y) {
+        found = 1;
+      }
+    }
+    if (found) {
+      i--;
+    } else {
+      game.placeShip(x, y);
+      placedShips.push([x, y]);
+      console.log(placedShips);
+    }
   }
 }
+
 export { run, attack };

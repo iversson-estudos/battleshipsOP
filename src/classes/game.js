@@ -18,6 +18,9 @@ class Game {
     this.startGame();
     this.turn = "AI";
   }
+  placeShip(x, y) {
+    this.aiPlayer.gameboard.placeShip(x, y, x, y);
+  }
 }
 
 export { Game };

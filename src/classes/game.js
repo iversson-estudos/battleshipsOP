@@ -1,5 +1,6 @@
 const Player = require("./player.js");
 import { mainView } from "../views/mainView.js";
+import { startView } from "../views/startView.js";
 
 class Game {
   constructor(playerName) {
@@ -9,7 +10,13 @@ class Game {
   }
 
   startGame() {
-    mainView(humanPlayer, aiPlayer);
+    mainView(this.humanPlayer, this.aiPlayer);
+  }
+
+  humanAttack(x, y) {
+    this.aiPlayer.gameboard.receiveAttack(x, y);
+    this.startGame();
+    this.turn = "AI";
   }
 }
 

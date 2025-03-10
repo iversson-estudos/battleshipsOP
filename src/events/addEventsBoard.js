@@ -1,5 +1,6 @@
 function addEventsBoard() {
-  const cells = document.querySelectorAll(".cell");
+  const aiBoard = document.getElementById("aiBoard");
+  const cells = aiBoard.querySelectorAll(".cell");
   cells.forEach((element) => {
     element.addEventListener("click", () => {
       console.log("CLICK ON " + element.id);

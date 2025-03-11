@@ -45,9 +45,10 @@ function placeRandomShips() {
     } else {
       game.placeShip(x, y);
       placedShips.push([x, y]);
-      console.log(placedShips);
     }
   }
+
+  console.log(placedShips);
 }
 
 export { run, attack };

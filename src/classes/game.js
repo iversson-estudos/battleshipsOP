@@ -14,9 +14,11 @@ class Game {
   }
 
   humanAttack(x, y) {
-    this.aiPlayer.gameboard.receiveAttack(x, y);
-    this.startGame();
-    this.turn = "AI";
+    if (this.turn === "Player") {
+      this.aiPlayer.gameboard.receiveAttack(x, y);
+      this.startGame();
+      this.turn = "Ai";
+    }
   }
   placeShip(x, y) {
     this.aiPlayer.gameboard.placeShip(x, y, x, y);

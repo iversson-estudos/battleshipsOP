@@ -15,11 +15,11 @@ function run() {
   placeRandomShips();
 }
 
-function attack(cell) {
+function sendAttack(cell) {
   const coordinates = cell.id.split("|");
   const x = coordinates[0];
   const y = coordinates[1];
-  game.humanAttack(x, y);
+  game.attack(x, y);
 }
 
 function placeRandomShips() {
@@ -51,4 +51,4 @@ function placeRandomShips() {
   console.log(placedShips);
 }
 
-export { run, attack };
+export { run, sendAttack };

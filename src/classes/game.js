@@ -23,6 +23,7 @@ class Game {
 
   placeShip(x, y) {
     this.aiPlayer.gameboard.placeShip(x, y, x, y);
+    this.humanPlayer.gameboard.placeShip(x, y, x, y);
   }
 }
 

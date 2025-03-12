@@ -12,11 +12,11 @@ function boardView(humanPlayer, aiPlayer) {
     for (let y = 0; y < humanPlayer.gameboard.log[x].length; y++) {
       const cell = document.createElement("div");
       cell.classList.add("cell");
-      if (humanPlayer.gameboard.log[x][y] === "") {
-        cell.textContent = x + "|" + y;
+      if (humanPlayer.gameboard.gameboard[x][y] === "") {
         cell.id = x + "|" + y;
       } else {
-        cell.textContent = humanPlayer.gameboard.log[x][y];
+        cell.id = x + "|" + y;
+        cell.textContent = humanPlayer.gameboard.gameboard[x][y];
       }
 
       humanBoard.appendChild(cell);
@@ -28,7 +28,6 @@ function boardView(humanPlayer, aiPlayer) {
       const cell = document.createElement("div");
       cell.classList.add("cell");
       if (aiPlayer.gameboard.log[x][y] === "") {
-        cell.textContent = x + "|" + y;
         cell.id = x + "|" + y;
       } else {
         cell.textContent = aiPlayer.gameboard.log[x][y];

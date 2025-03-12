@@ -17,7 +17,7 @@ class Game {
     if (this.turn === "Player") {
       this.aiPlayer.gameboard.receiveAttack(x, y);
       this.startGame();
-      this.turn = "Ai";
+      this.turn = "Player"; //this needs to change to "AI"/Player"
     }
   }
 

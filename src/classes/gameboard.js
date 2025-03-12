@@ -2,8 +2,10 @@ const Ship = require("./ship.js");
 
 class Gameboard {
   constructor(size = 8) {
-    this.gameboard = new Array(size).fill().map(() => new Array(size).fill());
-    this.log = new Array(size).fill().map(() => new Array(size).fill());
+    this.gameboard = new Array(size)
+      .fill("")
+      .map(() => new Array(size).fill(""));
+    this.log = new Array(size).fill("").map(() => new Array(size).fill(""));
     this.gameOver = false;
   }
   /*STARTS variable will always be the smaller ones, so we can say we scan the gameboard from left to right*/
@@ -29,14 +31,14 @@ class Gameboard {
       throw new Error("Out of bounds");
     }
     //checks if coordinates already hit
-    if (this.log[x][y]) {
+    if (this.log[x][y] === "hit" || this.log[x][y] === "miss") {
       throw new Error("Already hit");
     }
-
     if (this.gameboard[x][y] instanceof Ship) {
       this.gameboard[x][y].hit();
       this.log[x][y] = "hit";
       this.checkGameOver();
+
       return true;
     } else {
       this.log[x][y] = "miss";

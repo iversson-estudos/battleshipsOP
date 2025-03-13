@@ -17,10 +17,21 @@ class Game {
     if (this.turn === "Player") {
       this.aiPlayer.gameboard.receiveAttack(x, y);
       this.startGame();
-      this.turn = "Player"; //this needs to change to "AI"/Player"
+      this.changeTurn(); //this needs to change to "AI"/Player"
     }
   }
-
+  aiAttack() {
+    if (this.turn === "AI") {
+      this.humanPlayer.gameboard.receiveAttack(x, y);
+    }
+  }
+  changeTurn() {
+    if (this.turn === "Player") {
+      this.turn = "AI";
+    } else {
+      this.turn = "Player";
+    }
+  }
   placeShip(x, y) {
     this.aiPlayer.gameboard.placeShip(x, y, x, y);
     this.humanPlayer.gameboard.placeShip(x, y, x, y);

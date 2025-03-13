@@ -17,10 +17,27 @@ function boardView(humanPlayer, aiPlayer) {
         cell.innerHTML = `<span class="material-symbols-outlined">
         sailing
         </span>`;
-      } else {
+      } else if (
+        humanPlayer.gameboard.gameboard[x][y] === "" &&
+        humanPlayer.gameboard.log[x][y] === ""
+      ) {
         cell.innerHTML = `<span class="material-symbols-outlined">
         waves
         </span>`;
+      } else if (
+        humanPlayer.gameboard.gameboard[x][y] === "" &&
+        humanPlayer.gameboard.log[x][y] === "miss"
+      ) {
+        cell.innerHTML = `<span class="material-symbols-outlined">
+        close
+        </span>`;
+      } else if (
+        humanPlayer.gameboard.gameboard[x][y] === "" &&
+        humanPlayer.gameboard.log[x][y] === "hit"
+      ) {
+        cell.innerHTML = `<span class="material-symbols-outlined">
+        check
+            </span>`;
       }
 
       humanBoard.appendChild(cell);

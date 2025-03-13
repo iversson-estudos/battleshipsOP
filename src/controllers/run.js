@@ -3,9 +3,9 @@ import Ship from "../classes/ship.js";
 
 let game;
 
-function run(playerName) {
+function run() {
   //retrieves player name
-  //const playerName = document.getElementById("playerName").value;
+  const playerName = document.getElementById("playerName").value;
   //creates game with player name retrieved
   game = new Game(playerName);
   //place random ships

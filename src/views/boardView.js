@@ -12,10 +12,15 @@ function boardView(humanPlayer, aiPlayer) {
     for (let y = 0; y < humanPlayer.gameboard.log[x].length; y++) {
       const cell = document.createElement("div");
       cell.classList.add("cell");
+      cell.id = x + "|" + y;
       if (humanPlayer.gameboard.gameboard[x][y] instanceof Ship) {
-        cell.textContent = "Ship";
+        cell.innerHTML = `<span class="material-symbols-outlined">
+        sailing
+        </span>`;
       } else {
-        cell.id = x + "|" + y;
+        cell.innerHTML = `<span class="material-symbols-outlined">
+        waves
+        </span>`;
       }
 
       humanBoard.appendChild(cell);
@@ -26,11 +31,23 @@ function boardView(humanPlayer, aiPlayer) {
     for (let y = 0; y < aiPlayer.gameboard.log[x].length; y++) {
       const cell = document.createElement("div");
       cell.classList.add("cell");
-      if (aiPlayer.gameboard.log[x][y] === "") {
-        cell.id = x + "|" + y;
-      } else {
-        cell.textContent = aiPlayer.gameboard.log[x][y];
-        cell.id = x + "|" + y;
+      cell.id = x + "|" + y;
+      switch (aiPlayer.gameboard.log[x][y]) {
+        case "":
+          cell.innerHTML = `<span class="material-symbols-outlined">
+          question_mark
+        </span>`;
+          break;
+        case "miss":
+          cell.innerHTML = `<span class="material-symbols-outlined">
+          close
+          </span>`;
+          break;
+        case "hit":
+          cell.innerHTML = `<span class="material-symbols-outlined">
+          check
+              </span>`;
+          break;
       }
 
       aiBoard.appendChild(cell);

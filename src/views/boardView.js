@@ -12,11 +12,10 @@ function boardView(humanPlayer, aiPlayer) {
     for (let y = 0; y < humanPlayer.gameboard.log[x].length; y++) {
       const cell = document.createElement("div");
       cell.classList.add("cell");
-      if (humanPlayer.gameboard.gameboard[x][y] === "") {
-        cell.id = x + "|" + y;
+      if (humanPlayer.gameboard.gameboard[x][y] instanceof Ship) {
+        cell.textContent = "Ship";
       } else {
         cell.id = x + "|" + y;
-        cell.textContent = humanPlayer.gameboard.gameboard[x][y];
       }
 
       humanBoard.appendChild(cell);

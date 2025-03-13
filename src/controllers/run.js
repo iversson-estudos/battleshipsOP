@@ -3,16 +3,15 @@ import Ship from "../classes/ship.js";
 
 let game;
 
-function run() {
+function run(playerName) {
   //retrieves player name
-  const playerName = document.getElementById("playerName").value;
+  //const playerName = document.getElementById("playerName").value;
   //creates game with player name retrieved
   game = new Game(playerName);
   //place random ships
-
+  placeRandomShips();
   //starts game
   game.startGame();
-  placeRandomShips();
 }
 
 function sendAttack(cell) {
